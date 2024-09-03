@@ -29,15 +29,13 @@ const AboutPage = () => {
 				</h2>
 
 				<div className={styles.profile}>
-					<div className={styles.imageWrapper}>
-						<Image
-							src='/profilepic.jpg'
-							alt='Asif Alam'
-							width={150}
-							height={150}
-							className={styles.profileImage}
-						/>
-					</div>
+					<Image
+						src='/profilepic.jpg'
+						alt='Asif Alam'
+						width={150}
+						height={150}
+						className={styles.profileImage}
+					/>
 					<div className={styles.profileInfo}>
 						<h3 className={styles.name}>Asif Alam</h3>
 						<p className={styles.jobTitle}>Software Developer</p>
@@ -60,9 +58,10 @@ const AboutPage = () => {
 							<Link
 								href='/asif-alam-cv.pdf'
 								download
-								className={`${styles.socialLink} ${styles.downloadLink}`}>
-								<Download size={24} />
-								<span className={styles.downloadText}>Download CV</span>
+								className={styles.socialLink}>
+								<span className={styles.downloadLink}>
+									<Download size={24} />
+								</span>
 							</Link>
 						</div>
 					</div>
