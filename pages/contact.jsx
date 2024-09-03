@@ -2,17 +2,45 @@ import { useState } from 'react'
 import ContactCode from '../components/ContactCode'
 import styles from '../styles/ContactPage.module.css'
 import CustomHead from '../components/Head'
+
 const ContactPage = () => {
 	const [name, setName] = useState('')
 	const [email, setEmail] = useState('')
 	const [message, setMessage] = useState('')
 	const [submitted, setSubmitted] = useState(false)
+	const [isLoading, setIsLoading] = useState(false)
+	const [error, setError] = useState('')
 
-	const handleSubmit = e => {
+	const handleSubmit = async e => {
 		e.preventDefault()
-		// Here you would typically send the form data to your backend
-		console.log({ name, email, message })
-		setSubmitted(true)
+		setIsLoading(true)
+		setError('')
+
+		try {
+			const response = await fetch('/api/contact', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify({ name, email, message })
+			})
+
+			if (response.ok) {
+				console.log('Email sent successfully')
+				setName('')
+				setEmail('')
+				setMessage('')
+				setSubmitted(true)
+			} else {
+				console.error('Failed to send email')
+				setError('Failed to send message. Please try again.')
+			}
+		} catch (error) {
+			console.error('Error:', error)
+			setError('An unexpected error occurred. Please try again.')
+		}
+
+		setIsLoading(false)
 	}
 
 	return (
@@ -63,7 +91,10 @@ const ContactPage = () => {
 									onChange={e => setMessage(e.target.value)}
 									required></textarea>
 							</div>
-							<button type='submit'>Send Message</button>
+							{error && <p className={styles.error}>{error}</p>}
+							<button type='submit' disabled={isLoading}>
+								{isLoading ? 'Sending...' : 'Send Message'}
+							</button>
 						</form>
 					)}
 				</div>
