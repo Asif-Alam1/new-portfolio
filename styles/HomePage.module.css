@@ -1,0 +1,200 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Roboto:wght@300;400;700&display=swap');
+
+.container {
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	overflow: hidden;
+}
+
+.content {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	max-width: 1200px;
+	padding: 0 2rem;
+	z-index: 2;
+}
+
+.textContent {
+	flex: 1;
+}
+
+.title {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 5rem;
+	line-height: 1.1;
+	margin-bottom: 2rem;
+	color: var(--accent-color);
+}
+
+.titleLine {
+	display: block;
+}
+
+.info {
+	margin-bottom: 3rem;
+}
+
+.name {
+	font-family: 'Roboto', sans-serif;
+	font-size: 3rem;
+	font-weight: 700;
+	color: #eee;
+	margin-bottom: 0.5rem;
+}
+
+.bio {
+	font-family: 'Roboto', sans-serif;
+	font-size: 1.5rem;
+	font-weight: 300;
+	color: #eee;
+	position: relative;
+	display: inline-block;
+	overflow: hidden;
+}
+
+.bio::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 0.125em;
+	height: 100%;
+	background-color: var(--accent-color);
+	animation: blink 0.7s steps(2) infinite;
+}
+
+@keyframes blink {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+.cta {
+	display: flex;
+	gap: 1rem;
+}
+
+.button,
+.outlined {
+	font-family: 'Roboto', sans-serif;
+	font-size: 1rem;
+	font-weight: 600;
+	padding: 0.75rem 1.5rem;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: all 0.3s ease;
+}
+
+.button {
+	background-color: var(--accent-color);
+	color: var(--main-bg);
+}
+
+.outlined {
+	background-color: transparent;
+	color: var(--accent-color);
+	border: 2px solid var(--accent-color);
+}
+
+.button:hover,
+.outlined:hover {
+	transform: translateY(-3px);
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.illustrationWrapper {
+	flex: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.illustration {
+	width: 100%;
+	max-width: 500px;
+	height: auto;
+}
+
+.backgroundText {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: flex-end;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 10rem;
+	font-weight: 900;
+	color: rgba(255, 255, 255, 0.03);
+	z-index: 1;
+	pointer-events: none;
+}
+
+@media screen and (max-width: 1200px) {
+	.title {
+		font-size: 4rem;
+	}
+	.name {
+		font-size: 2.5rem;
+	}
+	.bio {
+		font-size: 1.25rem;
+	}
+	.backgroundText {
+		font-size: 8rem;
+	}
+}
+
+@media screen and (max-width: 900px) {
+	.content {
+		flex-direction: column;
+		text-align: center;
+	}
+	.textContent {
+		margin-bottom: 2rem;
+	}
+	.cta {
+		justify-content: center;
+	}
+	.illustration {
+		max-width: 400px;
+	}
+	.backgroundText {
+		font-size: 6rem;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.title {
+		font-size: 3rem;
+	}
+	.name {
+		font-size: 2rem;
+	}
+	.bio {
+		font-size: 1rem;
+	}
+	.button,
+	.outlined {
+		font-size: 0.9rem;
+		padding: 0.6rem 1.2rem;
+	}
+	.illustration {
+		max-width: 300px;
+	}
+	.backgroundText {
+		font-size: 4rem;
+	}
+}

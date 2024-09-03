@@ -1,0 +1,122 @@
+[
+	{
+		"id": 69,
+		"name": "Fit Companion",
+		"image": "/fitcompanion.avif",
+		"description": "An app for gyms to manage their clients trainers, inventory, sessions and many more",
+		"tags": ["next.js"],
+		"demo": "https://fitcompanion.notqwerty.workers.dev/"
+	},
+	{
+		"id": 71,
+		"name": "Antypas App",
+		"image": "/Antypas.png",
+		"description": "A webapp for a car dealership to list cars and manage their inventory",
+		"tags": ["next.js"],
+		"demo": "https://antypas-website.vercel.app/"
+	},
+	{
+		"id": 70,
+		"name": "Internal App",
+		"image": "/internalApp.png",
+		"description": "An internal app for a company to manage their employees, clients, finances and many more",
+		"tags": ["next.js"],
+		"demo": "https://internal-software.vercel.app/"
+	},
+	{
+		"id": 70,
+		"name": "Car Marketplace",
+		"image": "/ReactNative.webp",
+		"description": "A mobile app for a car marketplace with different user maangement, car listing and many more",
+		"tags": ["React Native"]
+	},
+
+	{
+		"id": 21,
+		"name": "Genius",
+		"image": "/genius.webp",
+		"description": "An AI app to chat, generate images, videos, audio files and code snippets",
+		"tags": ["next.js"],
+		"source_code": "https://github.com/Asif-Alam1/AI-App"
+	},
+	{
+		"id": 1,
+		"name": "Promptopia",
+		"image": "/Prompt.webp",
+		"description": "An AI prompt sharing app made with Next.js",
+		"tags": ["next.js"],
+		"source_code": "https://github.com/Asif-Alam1/Promptopia",
+		"demo": "https://promptopia-phi-sable.vercel.app/"
+	},
+	{
+		"id": 2,
+		"name": "Ninja Help",
+		"image": "/Ninja.webp",
+		"description": "A Ticketing and Helpdesk app made with Next.js",
+		"tags": ["next.js"],
+		"source_code": "https://github.com/Asif-Alam1/Ninja-Helper"
+	},
+	{
+		"id": 3,
+		"name": "Auth Toolkit",
+		"image": "/Auth.webp",
+		"description": "An authentication toolkit made with Next.js and Auth v5",
+		"tags": ["next.js"],
+		"source_code": "https://github.com/Asif-Alam1/next-auth-v5",
+		"demo": "https://next-auth-v5-theta.vercel.app/"
+	},
+	{
+		"id": 5,
+		"name": "BetterMe",
+		"image": "/BetterMe.webp",
+		"description": "A calorie tracking and fitness app made with React.js",
+		"tags": ["react.js"],
+		"source_code": "https://github.com/Asif-Alam1/BetterMe",
+		"demo": "https://betterme.rf.gd/"
+	},
+	{
+		"id": 6,
+		"name": "ACME",
+		"image": "/ACME.webp",
+		"description": "An Online Dashboard made with Next.js",
+		"tags": ["next.js"],
+		"source_code": "https://github.com/Asif-Alam1/ACME",
+		"demo": "https://acme-beta-six.vercel.app/"
+	},
+	{
+		"id": 7,
+		"name": "Wordle Clone",
+		"image": "/wordle.webp",
+		"description": "A Wordle clone made with React.js",
+		"tags": ["react.js"],
+		"source_code": "https://github.com/Asif-Alam1/Wordle-Clone",
+		"demo": "https://tiabirthday.netlify.app/"
+	},
+
+	{
+		"id": 13,
+		"name": "BattleShip",
+		"image": "/Battle.webp",
+		"description": "A text based game written in Java",
+		"tags": ["java"],
+		"source_code": "https://github.com/Asif-Alam1/BattleShip"
+	},
+
+	{
+		"id": 17,
+		"name": "Syllabus App",
+		"image": "/syllabus.webp",
+		"description": "An app to create, edit and download course syllabus in a consistent way for professors and universities",
+		"tags": ["react.js"],
+		"source_code": "https://github.com/Asif-Alam1/syllabus",
+		"demo": "http://inputsyllabus.rf.gd/"
+	},
+	{
+		"id": 18,
+		"name": "Lead Tracker",
+		"image": "/lead.webp",
+		"description": "A chrome extension to save and track leads using Javascript and the local storage",
+		"tags": ["javascript"],
+		"source_code": "https://github.com/Asif-Alam1/Lead-Tracker"
+	}
+]

@@ -1,0 +1,115 @@
+.tabsbar {
+	display: flex;
+	background: var(--tabs-bg);
+	border-bottom: 1px solid var(--tab-border);
+	overflow-x: auto;
+	scrollbar-width: thin;
+	scrollbar-color: var(--accent-color) var(--tabs-bg);
+}
+
+.tabsbar::-webkit-scrollbar {
+	height: 5px;
+}
+
+.tabsbar::-webkit-scrollbar-track {
+	background: var(--tabs-bg);
+}
+
+.tabsbar::-webkit-scrollbar-thumb {
+	background-color: var(--accent-color);
+	border-radius: 6px;
+	border: 3px solid var(--tabs-bg);
+}
+
+.tabs {
+	display: flex;
+	flex-grow: 1;
+}
+
+.tab {
+	padding: 0.5rem 1rem;
+	background: var(--tab-bg);
+	color: #ececec;
+	display: flex;
+	align-items: center;
+	border-right: 1px solid var(--tab-border);
+	font-family: 'Source Sans Pro', sans-serif;
+	font-size: 0.9rem;
+	cursor: pointer;
+	user-select: none;
+	transition: background-color 0.3s ease;
+	position: relative;
+	min-width: 120px;
+	max-width: 200px;
+}
+
+.tab p {
+	margin: 0 0 0 8px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	flex-grow: 1;
+}
+
+.tab:hover {
+	background: var(--tab-hover-bg);
+}
+
+.active {
+	background: var(--tab-active-bg);
+	border-top: 1px solid var(--accent-color);
+	border-bottom: none;
+}
+
+.closeTab {
+	background: none;
+	border: none;
+	color: #ececec;
+	cursor: pointer;
+	padding: 0;
+	margin-left: 8px;
+	opacity: 0.7;
+	transition: opacity 0.3s ease;
+}
+
+.closeTab:hover {
+	opacity: 1;
+}
+
+.tabActions {
+	display: flex;
+	align-items: center;
+	padding: 0 0.5rem;
+}
+
+.actionButton {
+	background: none;
+	border: none;
+	color: #ececec;
+	cursor: pointer;
+	padding: 0.25rem;
+	margin-left: 0.5rem;
+	opacity: 0.7;
+	transition: opacity 0.3s ease;
+}
+
+.actionButton:hover {
+	opacity: 1;
+}
+
+@media screen and (max-width: 900px) {
+	.tabsbar {
+		width: 78vw;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.tabsbar {
+		width: 89.5vw;
+	}
+
+	.tab {
+		min-width: 100px;
+		max-width: 150px;
+	}
+}

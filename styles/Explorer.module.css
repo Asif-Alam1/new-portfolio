@@ -1,0 +1,132 @@
+.explorer {
+	background: var(--explorer-bg);
+	width: 18vw;
+	color: rgb(225, 228, 232);
+	font-family: 'Source Sans Pro', sans-serif;
+	border-right: 1px solid var(--explorer-border);
+	height: 100vh; /* Adjust based on your layout */
+	overflow-y: auto;
+}
+
+.explorerHeader {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0.5rem 0.75rem;
+	border-bottom: 1px solid var(--explorer-border);
+}
+
+.title {
+	font-weight: 300;
+	text-transform: uppercase;
+	font-size: 0.9rem;
+	letter-spacing: 1px;
+}
+
+.actions {
+	display: flex;
+	gap: 0.5rem;
+}
+
+.actionIcon {
+	cursor: pointer;
+	opacity: 0.7;
+	transition: opacity 0.2s ease;
+}
+
+.actionIcon:hover {
+	opacity: 1;
+}
+
+.heading {
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 0.8rem;
+	letter-spacing: 1px;
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	padding: 0.5rem;
+	user-select: none;
+}
+
+.heading:hover {
+	background: var(--explorer-hover-bg);
+}
+
+.files {
+	padding: 0.5rem 0;
+}
+
+.file {
+	padding: 0.2rem 0.5rem;
+	display: flex;
+	align-items: center;
+	font-size: 0.875rem;
+	cursor: pointer;
+	user-select: none;
+	justify-content: space-between;
+}
+
+.fileContent {
+	display: flex;
+	align-items: center;
+	flex-grow: 1;
+}
+
+.file p {
+	margin-left: 5px;
+}
+
+.file:hover {
+	background: var(--explorer-hover-bg);
+}
+
+.selected {
+	background: var(--explorer-selected-bg);
+}
+
+.chevron {
+	transition: transform 0.2s;
+}
+
+.deleteIcon {
+	opacity: 0;
+	transition: opacity 0.2s ease;
+}
+
+.file:hover .deleteIcon {
+	opacity: 0.7;
+}
+
+.deleteIcon:hover {
+	opacity: 1;
+}
+
+.newFileInput {
+	width: 100%;
+	padding: 0.2rem 0.5rem;
+	margin-top: 0.5rem;
+	background: var(--explorer-bg);
+	border: 1px solid var(--explorer-border);
+	color: rgb(225, 228, 232);
+	font-size: 0.875rem;
+}
+
+@media screen and (min-width: 2000px) {
+	.explorer {
+		width: 10vw;
+	}
+}
+
+@media screen and (max-width: 900px) {
+	.explorer {
+		width: 20vw;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.explorer {
+		display: none;
+	}
+}
