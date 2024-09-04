@@ -32,23 +32,23 @@ const RepoCard = ({ repo }) => {
 					</div>
 				</div>
 				<div className={styles.links}>
-					<Link
+					<a
 						href={repo.html_url}
 						target='_blank'
 						rel='noopener noreferrer'
 						className={styles.link}>
 						<GithubIcon height={20} width={20} className={styles.icon} />
 						{isHovered && <span>View on GitHub</span>}
-					</Link>
+					</a>
 					{repo.homepage && (
-						<Link
+						<a
 							href={repo.homepage}
 							target='_blank'
 							rel='noopener noreferrer'
 							className={styles.link}>
 							<LinkIcon height={20} width={20} className={styles.icon} />
 							{isHovered && <span>Live Demo</span>}
-						</Link>
+						</a>
 					)}
 				</div>
 			</div>
