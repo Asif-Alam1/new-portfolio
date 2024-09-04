@@ -8,7 +8,7 @@ export default function HomePage() {
 	return (
 		<>
 			<CustomHead
-				title='HomePage'
+				title='Portfolio Home Page'
 				description='Asif Alam is a Software Engineer building the future through innovative web development. Explore his portfolio and projects.'
 			/>
 			<div className={styles.container}>
@@ -47,6 +47,6 @@ export default function HomePage() {
 
 export async function getStaticProps() {
 	return {
-		props: { title: 'HomePage' }
+		props: { title: 'Portfolio Home Page ' }
 	}
 }

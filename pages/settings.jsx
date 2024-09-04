@@ -55,7 +55,7 @@ const SettingsPage = () => {
 
 export async function getStaticProps() {
 	return {
-		props: { title: 'Theme Settings' }
+		props: { title: 'Portfolio Theme Settings' }
 	}
 }
 
