@@ -27,9 +27,16 @@
 	margin-bottom: 3rem;
 }
 
+.imageWrapper {
+	flex-shrink: 0;
+	width: 150px;
+	height: 150px;
+	margin-right: 2rem;
+}
+
 .profileImage {
 	border-radius: 50%;
-	margin-right: 2rem;
+	object-fit: cover;
 }
 
 .profileInfo {
@@ -192,7 +199,7 @@
 		text-align: center;
 	}
 
-	.profileImage {
+	.imageWrapper {
 		margin-right: 0;
 		margin-bottom: 1rem;
 	}

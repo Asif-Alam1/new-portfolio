@@ -29,13 +29,16 @@ const AboutPage = () => {
 				</h2>
 
 				<div className={styles.profile}>
-					<Image
-						src='/profilepic.jpg'
-						alt='Asif Alam'
-						width={150}
-						height={150}
-						className={styles.profileImage}
-					/>
+					<div className={styles.imageWrapper}>
+						<Image
+							src='/profile-pic.webp'
+							alt='Asif Alam'
+							width={150}
+							height={150}
+							className={styles.profileImage}
+							objectFit='cover'
+						/>
+					</div>
 					<div className={styles.profileInfo}>
 						<h3 className={styles.name}>Asif Alam</h3>
 						<p className={styles.jobTitle}>Software Developer</p>

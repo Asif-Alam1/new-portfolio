@@ -3,7 +3,7 @@
 		"id": 69,
 		"name": "Fit Companion",
 		"image": "/fitcompanion.avif",
-		"description": "An app for gyms to manage their clients trainers, inventory, sessions and many more",
+		"description": "An app for gyms to manage their clients trainers, inventory, sessions and many more built as part of qwerty",
 		"tags": ["next.js"],
 		"demo": "https://fitcompanion.notqwerty.workers.dev/"
 	},
@@ -11,7 +11,7 @@
 		"id": 71,
 		"name": "Antypas App",
 		"image": "/Antypas.png",
-		"description": "A webapp for a car dealership to list cars and manage their inventory",
+		"description": "A webapp for a car dealership to list cars and manage their inventory built as part of qwerty",
 		"tags": ["next.js"],
 		"demo": "https://antypas-website.vercel.app/"
 	},
@@ -19,7 +19,7 @@
 		"id": 70,
 		"name": "Internal App",
 		"image": "/internalApp.png",
-		"description": "An internal app for a company to manage their employees, clients, finances and many more",
+		"description": "An internal app for a company to manage their employees, clients, finances and many more, built as part of qwerty",
 		"tags": ["next.js"],
 		"demo": "https://internal-software.vercel.app/"
 	},
@@ -27,7 +27,7 @@
 		"id": 70,
 		"name": "Car Marketplace",
 		"image": "/ReactNative.webp",
-		"description": "A mobile app for a car marketplace with different user maangement, car listing and many more",
+		"description": "A mobile app for a car marketplace with different user maangement, car listing and many more built as part of qwerty",
 		"tags": ["React Native"]
 	},
 
