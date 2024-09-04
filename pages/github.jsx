@@ -26,7 +26,7 @@ const GithubPage = ({ repos, user }) => {
 	return (
 		<>
 			<CustomHead
-				title='GitHub'
+				title='GitHub Summary'
 				description="View Asif Alam's GitHub profile, top repositories, and contribution graph. Discover his open-source projects and coding activity."
 			/>
 			<div className={styles.githubContainer}>
@@ -35,7 +35,7 @@ const GithubPage = ({ repos, user }) => {
 						<Image
 							src={user.avatar_url}
 							className={styles.avatar}
-							alt={user.login}
+							alt='User Avatar'
 							width={100}
 							height={100}
 						/>
@@ -113,7 +113,7 @@ export async function getStaticProps() {
 		.slice(0, 6)
 
 	return {
-		props: { title: 'GitHub', repos, user },
+		props: { title: 'GitHub Summary', repos, user },
 		revalidate: 10
 	}
 }

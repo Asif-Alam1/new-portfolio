@@ -46,7 +46,7 @@ const ContactPage = () => {
 	return (
 		<>
 			<CustomHead
-				title='Contact'
+				title='Contact and Socials Page'
 				description='Get in touch with Asif Alam. Send a message or connect via social media to discuss web development projects or opportunities.'
 			/>
 			<div className={styles.container}>
@@ -105,7 +105,7 @@ const ContactPage = () => {
 
 export async function getStaticProps() {
 	return {
-		props: { title: 'Contact' }
+		props: { title: 'Contact and Socials' }
 	}
 }
 

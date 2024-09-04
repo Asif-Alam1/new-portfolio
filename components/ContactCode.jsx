@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import styles from '../styles/ContactCode.module.css'
 
 const contactItems = [
@@ -38,9 +39,9 @@ const ContactCode = () => {
 				<p className={styles.line} key={index}>
 					&nbsp;&nbsp;<span className={styles.property}>{item.social}</span>:{' '}
 					<span className={styles.value}>
-						<a href={item.href} target='_blank' rel='noopener noreferrer'>
+						<Link href={item.href} target='_blank' rel='noopener noreferrer'>
 							{item.link}
-						</a>
+						</Link>
 					</span>
 					;
 				</p>

@@ -13,6 +13,7 @@ import {
 	Coffee
 } from 'lucide-react'
 import styles from '../styles/Titlebar.module.css'
+import Link from 'next/link'
 
 const themes = [
 	{ name: 'GitHub Dark', value: 'github-dark' },
@@ -179,22 +180,22 @@ const Titlebar = () => {
 						</div>
 					)}
 				</div>
-				<a
+				<Link
 					href='https://github.com/asif-alam1'
 					target='_blank'
 					rel='noopener noreferrer'
 					className={styles.iconButton}
 					title='GitHub'>
 					<Github size={14} />
-				</a>
-				<a
+				</Link>
+				<Link
 					href='https://linkedin.com/in/asif-alam-talukder'
 					target='_blank'
 					rel='noopener noreferrer'
 					className={styles.iconButton}
 					title='LinkedIn'>
 					<Linkedin size={14} />
-				</a>
+				</Link>
 				<a
 					href='mailto:asiftalukder151@gmail.com'
 					className={styles.iconButton}

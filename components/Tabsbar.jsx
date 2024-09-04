@@ -66,7 +66,7 @@ const Tabsbar = () => {
 							onDragStart={e => handleTabDragStart(e, index)}
 							onDragOver={handleTabDragOver}
 							onDrop={e => handleTabDrop(e, index)}>
-							<Image src={tab.icon} alt={tab.filename} height={18} width={18} />
+							<Image src={tab.icon} alt='Tab File Name' height={18} width={18} />
 							<p>{tab.filename}</p>
 							<button
 								className={styles.closeTab}

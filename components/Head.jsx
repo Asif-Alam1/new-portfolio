@@ -4,7 +4,7 @@ const CustomHead = ({ title, description, image }) => {
 	const defaultTitle = 'Asif Alam | Software Developer'
 	const defaultDescription =
 		'Asif Alam is a top computer engineering student and full stack developer with experience in Next.js, React.js, and Nest.js. Explore his portfolio of innovative web projects.'
-	const defaultImage = 'https://asifalam.tech/og-image.jpg' // Replace with your actual OG image URL
+	const defaultImage = 'https://asif-alam-portfolio.vercel.app/export.png' // Replace with your actual OG image URL
 
 	return (
 		<Head>
@@ -15,11 +15,14 @@ const CustomHead = ({ title, description, image }) => {
 			{/* Keywords based on skills and experience */}
 			<meta
 				name='keywords'
-				content='Asif Alam, Software Developer, Full Stack Developer, Next.js, React.js, Nest.js, Tailwind CSS, React Native, Database Management, Software Engineering, MERN Stack, Education Basket Systems, QWERTY, Stitches Studio'
+				content='Asif Alam, Software Developer, Full Stack Developer, Next.js, React.js, Nest.js, Tailwind CSS, React Native, Database Management, Software Engineering, MERN Stack, QWERTY, Stitches Studio'
 			/>
 			{/* Open Graph / Facebook */}
 			<meta property='og:type' content='website' />
-			<meta property='og:url' content='https://asifalam.tech' />{' '}
+			<meta
+				property='og:url'
+				content='https://asif-alam-portfolio.vercel.app'
+			/>{' '}
 			{/* Replace with your actual website URL */}
 			<meta property='og:title' content={title || defaultTitle} />
 			<meta
@@ -29,7 +32,10 @@ const CustomHead = ({ title, description, image }) => {
 			<meta property='og:image' content={image || defaultImage} />
 			{/* Twitter */}
 			<meta name='twitter:card' content='summary_large_image' />
-			<meta name='twitter:url' content='https://asifalam.tech' />{' '}
+			<meta
+				name='twitter:url'
+				content='https://asif-alam-portfolio.vercel.app'
+			/>{' '}
 			{/* Replace with your actual website URL */}
 			<meta name='twitter:title' content={title || defaultTitle} />
 			<meta
@@ -49,7 +55,10 @@ const CustomHead = ({ title, description, image }) => {
 				href='/apple-touch-icon.png'
 			/>
 			{/* Canonical URL */}
-			<link rel='canonical' href='https://asifalam.tech' />{' '}
+			<link
+				rel='canonical'
+				href='https://asif-alam-portfolio.vercel.app'
+			/>{' '}
 			{/* Replace with your actual website URL */}
 			{/* Schema.org for Google */}
 			<script type='application/ld+json'>
@@ -58,7 +67,7 @@ const CustomHead = ({ title, description, image }) => {
             "@context": "http://schema.org",
             "@type": "Person",
             "name": "Asif Alam",
-            "url": "https://asifalam.tech",
+            "url": "https://asif-alam-portfolio.vercel.app",
             "sameAs": [
               "https://github.com/asif-alam1",
               "https://www.linkedin.com/in/asif-alam-talukder"

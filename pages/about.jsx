@@ -19,7 +19,7 @@ const AboutPage = () => {
 	return (
 		<>
 			<CustomHead
-				title='About'
+				title='About Me Page'
 				description='Learn about Asif Alam, a top computer engineering student and software developer with expertise in Next.js, React.js, and Nest.js.'
 			/>
 			<div className={styles.container}>
@@ -207,7 +207,7 @@ const AboutPage = () => {
 
 export async function getStaticProps() {
 	return {
-		props: { title: 'About' }
+		props: { title: 'About Me Page' }
 	}
 }
 

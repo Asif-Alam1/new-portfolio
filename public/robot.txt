@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://asif-alam-portfolio.vercel.app/sitemap.xml

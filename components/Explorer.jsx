@@ -126,7 +126,7 @@ const Explorer = () => {
 								<div className={styles.fileContent}>
 									<Image
 										src={`/${item.icon}`}
-										alt={item.name}
+										alt='File Icon'
 										height={18}
 										width={18}
 									/>

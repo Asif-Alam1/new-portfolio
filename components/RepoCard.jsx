@@ -5,6 +5,7 @@ import StarIcon from '../components/icons/StarIcon'
 import GithubIcon from '../components/icons/GithubIcon'
 import LinkIcon from '../components/icons/LinkIcon'
 import styles from '../styles/RepoCard.module.css'
+import Link from 'next/link'
 
 const RepoCard = ({ repo }) => {
 	const [isHovered, setIsHovered] = useState(false)
@@ -31,23 +32,23 @@ const RepoCard = ({ repo }) => {
 					</div>
 				</div>
 				<div className={styles.links}>
-					<a
+					<Link
 						href={repo.html_url}
 						target='_blank'
 						rel='noopener noreferrer'
 						className={styles.link}>
 						<GithubIcon height={20} width={20} className={styles.icon} />
 						{isHovered && <span>View on GitHub</span>}
-					</a>
+					</Link>
 					{repo.homepage && (
-						<a
+						<Link
 							href={repo.homepage}
 							target='_blank'
 							rel='noopener noreferrer'
 							className={styles.link}>
 							<LinkIcon height={20} width={20} className={styles.icon} />
 							{isHovered && <span>Live Demo</span>}
-						</a>
+						</Link>
 					)}
 				</div>
 			</div>

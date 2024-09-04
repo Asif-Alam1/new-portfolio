@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import { useState } from 'react'
 import styles from '../styles/ProjectCard.module.css'
+import Link from 'next/link'
 
 const ProjectCard = ({ project }) => {
 	const [isHovered, setIsHovered] = useState(false)
@@ -15,7 +16,7 @@ const ProjectCard = ({ project }) => {
 					src={project.image}
 					layout='fill'
 					objectFit='cover'
-					alt={project.name}
+					alt='Project Image'
 					className={styles.image}
 				/>
 				{isHovered && (
@@ -35,22 +36,22 @@ const ProjectCard = ({ project }) => {
 						</div>
 						<div className={styles.cta}>
 							{project.source_code && (
-								<a
+								<Link
 									href={project.source_code}
 									target='_blank'
 									rel='noopener noreferrer'
 									className={styles.button}>
 									Source Code
-								</a>
+								</Link>
 							)}
 							{project.demo && (
-								<a
+								<Link
 									href={project.demo}
 									target='_blank'
 									rel='noopener noreferrer'
 									className={styles.button}>
 									Live Demo
-								</a>
+								</Link>
 							)}
 						</div>
 					</div>
