@@ -20,12 +20,12 @@ const AboutPage = () => {
 		<>
 			<CustomHead
 				title='About Me Page'
-				description='Learn about Asif Alam, a top computer engineering student and software developer with expertise in Next.js, React.js, and Nest.js.'
+				description='Learn about Asif Alam, a top computer engineering student and software engineer with expertise in Next.js, React.js, React Native and Nest.js.'
 			/>
 			<div className={styles.container}>
 				<h2 className={styles.title}>
 					<Terminal className={styles.icon} />
-					About Asif Alam: Software Developer Extraordinaire
+					About Asif Alam: Software Engineer Extraordinaire
 				</h2>
 
 				<div className={styles.profile}>
@@ -41,7 +41,7 @@ const AboutPage = () => {
 					</div>
 					<div className={styles.profileInfo}>
 						<h3 className={styles.name}>Asif Alam</h3>
-						<p className={styles.jobTitle}>Software Developer</p>
+						<p className={styles.jobTitle}>Software Engineer</p>
 						<p className={styles.location}>Jdeideh, Matn, Lebanon</p>
 						<div className={styles.socialLinks}>
 							<Link
@@ -77,8 +77,9 @@ const AboutPage = () => {
 							Profile
 						</h3>
 						<p className={styles.paragraph}>
-							A top computer engineering student with remarkably high grades and
-							diverse work experience across various sectors.
+							A top software engineer and computer engineering student with
+							remarkably high grades and diverse work experience across various
+							sectors.
 						</p>
 						<p className={styles.paragraph}>
 							Equipped with excellent critical thinking and problem-solving
@@ -119,7 +120,7 @@ const AboutPage = () => {
 						</h3>
 						<ul className={styles.timeline}>
 							<li className={styles.timelineItem}>
-								<h4 className={styles.jobTitle}>Lead Developer at QWERTY</h4>
+								<h4 className={styles.jobTitle}>Lead Engineer at QWERTY</h4>
 								<p className={styles.jobDate}>May 2024 - Present</p>
 								<p className={styles.jobDescription}>
 									Leading ideation and development, working on various projects,

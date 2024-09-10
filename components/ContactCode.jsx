@@ -4,8 +4,8 @@ import styles from '../styles/ContactCode.module.css'
 const contactItems = [
 	{
 		social: 'website',
-		link: 'asifalam.tech',
-		href: 'https://asifalam.tech'
+		link: 'asif-alam-portfolio.vercel.app',
+		href: 'https://asif-alam-portfolio.vercel.app'
 	},
 	{
 		social: 'email',
