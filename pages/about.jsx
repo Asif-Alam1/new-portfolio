@@ -64,6 +64,7 @@ const AboutPage = () => {
 								className={styles.socialLink}>
 								<span className={styles.downloadLink}>
 									<Download size={24} />
+									<span className={styles.downloadText}>Download CV</span>
 								</span>
 							</Link>
 						</div>
