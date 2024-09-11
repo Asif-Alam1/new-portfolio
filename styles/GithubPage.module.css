@@ -147,7 +147,7 @@
 
 .stats {
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
 }
 
 .statRow {
@@ -342,6 +342,7 @@
 	.stats {
 		width: 100%;
 		justify-content: space-around;
+		flex-direction: column;
 	}
 }
 
