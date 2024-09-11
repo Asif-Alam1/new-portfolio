@@ -25,6 +25,13 @@
 	padding: 2rem;
 	border-radius: 10px;
 	margin-bottom: 3rem;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	transition: all 0.3s ease;
+}
+
+.profile:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 }
 
 .imageWrapper {
@@ -32,11 +39,19 @@
 	width: 150px;
 	height: 150px;
 	margin-right: 2rem;
+	position: relative;
+	overflow: hidden;
+	border-radius: 50%;
+	box-shadow: 0 0 0 4px var(--accent-color);
 }
 
 .profileImage {
-	border-radius: 50%;
 	object-fit: cover;
+	transition: transform 0.3s ease;
+}
+
+.imageWrapper:hover .profileImage {
+	transform: scale(1.1);
 }
 
 .profileInfo {
@@ -48,17 +63,19 @@
 	font-size: 1.5rem;
 	font-weight: bold;
 	margin-bottom: 0.5rem;
+	color: var(--accent-color);
 }
 
 .jobTitle {
 	font-size: 1.2rem;
-	color: var(--accent-color);
+	color: var(--text-color);
 	margin-bottom: 0.5rem;
 }
 
 .location {
 	font-size: 1rem;
 	margin-bottom: 1rem;
+	color: var(--text-color-secondary);
 }
 
 .socialLinks {
@@ -69,13 +86,14 @@
 
 .socialLink {
 	color: var(--accent-color);
-	transition: color 0.3s ease;
+	transition: all 0.3s ease;
 	display: flex;
 	align-items: center;
 }
 
 .socialLink:hover {
 	color: var(--text-color);
+	transform: translateY(-2px);
 }
 
 .downloadLink {
@@ -92,32 +110,63 @@
 .content {
 	display: flex;
 	flex-direction: column;
-	gap: 3rem;
+	gap: 1.5rem;
 }
 
 .section {
 	background-color: var(--article-bg);
-	padding: 2rem;
 	border-radius: 10px;
+	overflow: hidden;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	transition: all 0.3s ease;
+}
+
+.section:hover {
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
 }
 
 .sectionTitle {
-	font-size: 1.5rem;
+	font-size: 1.3rem;
 	font-weight: bold;
-	margin-bottom: 1.5rem;
+	padding: 1.5rem;
 	display: flex;
 	align-items: center;
+	cursor: pointer;
+	background-color: var(--button-bg);
+	color: var(--button-text);
+	transition: all 0.3s ease;
+}
+
+.sectionTitle:hover {
+	background-color: var(--button-hover-bg);
+}
+
+.sectionTitle .icon {
+	margin-left: auto;
+}
+
+.sectionContent {
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.3s ease-out;
+}
+
+.section.expanded .sectionContent {
+	max-height: 1000px; /* Adjust this value based on your content */
+	transition: max-height 0.5s ease-in;
 }
 
 .paragraph {
 	margin-bottom: 1rem;
 	line-height: 1.6;
+	padding: 0 1.5rem;
 }
 
 .skillsGrid {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
 	gap: 1rem;
+	padding: 1.5rem;
 }
 
 .skill {
@@ -127,11 +176,18 @@
 	border-radius: 5px;
 	text-align: center;
 	font-size: 0.9rem;
+	transition: all 0.3s ease;
+	cursor: pointer;
+}
+
+.skill:hover {
+	background-color: var(--button-hover-bg);
+	transform: translateY(-2px);
 }
 
 .timeline {
 	list-style-type: none;
-	padding: 0;
+	padding: 1.5rem;
 }
 
 .timelineItem {
@@ -156,258 +212,9 @@
 	font-size: 1.2rem;
 	font-weight: bold;
 	margin-bottom: 0.5rem;
-}
-
-.jobDate {
-	font-size: 0.9rem;
-	color: var(--accent-color);
-	margin-bottom: 0.5rem;
-}
-
-.jobDescription {
-	line-height: 1.6;
-}
-
-.educationList {
-	list-style-type: none;
-	padding: 0;
-}
-
-.educationItem {
-	margin-bottom: 2rem;
-}
-
-.schoolName {
-	font-size: 1.2rem;
-	font-weight: bold;
-	margin-bottom: 0.5rem;
-}
-
-.educationDate {
-	font-size: 0.9rem;
-	color: var(--accent-color);
-	margin-bottom: 0.5rem;
-}
-
-.educationDetail {
-	margin-bottom: 0.5rem;
-}
-
-.educationGrade {
-	font-weight: bold;
-}
-
-.involvementList {
-	list-style-type: disc;
-	padding-left: 1.5rem;
-}
-
-.involvementItem {
-	margin-bottom: 1rem;
-	line-height: 1.6;
-}
-
-@media screen and (max-width: 768px) {
-	.profile {
-		flex-direction: column;
-		text-align: center;
-	}
-
-	.imageWrapper {
-		margin-right: 0;
-		margin-bottom: 1rem;
-	}
-
-	.skillsGrid {
-		grid-template-columns: repeat(2, 1fr);
-	}
-
-	.socialLinks {
-		justify-content: center;
-	}
-}
-
-@media screen and (max-width: 480px) {
-	.container {
-		padding: 1rem;
-	}
-
-	.title {
-		font-size: 1.5rem;
-	}
-
-	.section {
-		padding: 1.5rem;
-	}
-
-	.skillsGrid {
-		grid-template-columns: 1fr;
-	}
-
-	.downloadText {
-		display: none;
-	}
-}
-.container {
-	max-width: 900px;
-	margin: 0 auto;
-	padding: 2rem;
-	font-family: 'JetBrains Mono', monospace;
-}
-
-.title {
-	font-size: 2rem;
-	font-weight: bold;
-	color: var(--accent-color);
-	margin-bottom: 2rem;
-	display: flex;
-	align-items: center;
-}
-
-.icon {
-	margin-right: 1rem;
-}
-
-.profile {
-	display: flex;
-	align-items: center;
-	background-color: var(--article-bg);
-	padding: 2rem;
-	border-radius: 10px;
-	margin-bottom: 3rem;
-}
-
-.imageWrapper {
-	flex-shrink: 0;
-	width: 150px;
-	height: 150px;
-	margin-right: 2rem;
-}
-
-.profileImage {
-	border-radius: 50%;
-	object-fit: cover;
-}
-
-.profileInfo {
-	display: flex;
-	flex-direction: column;
-}
-
-.name {
-	font-size: 1.5rem;
-	font-weight: bold;
-	margin-bottom: 0.5rem;
-}
-
-.jobTitle {
-	font-size: 1.2rem;
-	color: var(--accent-color);
-	margin-bottom: 0.5rem;
-}
-
-.location {
-	font-size: 1rem;
-	margin-bottom: 1rem;
-}
-
-.socialLinks {
-	display: flex;
-	gap: 1rem;
-	align-items: center;
-}
-
-.socialLink {
-	color: var(--accent-color);
-	transition: color 0.3s ease;
-	display: flex;
-	align-items: center;
-}
-
-.socialLink:hover {
 	color: var(--text-color);
 }
 
-.downloadLink {
-	display: flex;
-	align-items: center;
-	gap: 0.5rem;
-}
-
-.downloadText {
-	font-size: 0.9rem;
-	white-space: nowrap;
-}
-
-.content {
-	display: flex;
-	flex-direction: column;
-	gap: 3rem;
-}
-
-.section {
-	background-color: var(--article-bg);
-	padding: 2rem;
-	border-radius: 10px;
-}
-
-.sectionTitle {
-	font-size: 1.5rem;
-	font-weight: bold;
-	margin-bottom: 1.5rem;
-	display: flex;
-	align-items: center;
-}
-
-.paragraph {
-	margin-bottom: 1rem;
-	line-height: 1.6;
-}
-
-.skillsGrid {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-	gap: 1rem;
-}
-
-.skill {
-	background-color: var(--button-bg);
-	color: var(--button-text);
-	padding: 0.5rem 1rem;
-	border-radius: 5px;
-	text-align: center;
-	font-size: 0.9rem;
-}
-
-.timeline {
-	list-style-type: none;
-	padding: 0;
-}
-
-.timelineItem {
-	position: relative;
-	padding-left: 2rem;
-	padding-bottom: 2rem;
-	border-left: 2px solid var(--accent-color);
-}
-
-.timelineItem::before {
-	content: '';
-	width: 1rem;
-	height: 1rem;
-	background-color: var(--accent-color);
-	border-radius: 50%;
-	position: absolute;
-	left: -0.5rem;
-	top: 0;
-}
-
-.jobTitle {
-	font-size: 1.2rem;
-	font-weight: bold;
-	margin-bottom: 0.5rem;
-}
-
 .jobDate {
 	font-size: 0.9rem;
 	color: var(--accent-color);
@@ -416,11 +223,12 @@
 
 .jobDescription {
 	line-height: 1.6;
+	color: var(--text-color-secondary);
 }
 
 .educationList {
 	list-style-type: none;
-	padding: 0;
+	padding: 1.5rem;
 }
 
 .educationItem {
@@ -431,258 +239,9 @@
 	font-size: 1.2rem;
 	font-weight: bold;
 	margin-bottom: 0.5rem;
-}
-
-.educationDate {
-	font-size: 0.9rem;
-	color: var(--accent-color);
-	margin-bottom: 0.5rem;
-}
-
-.educationDetail {
-	margin-bottom: 0.5rem;
-}
-
-.educationGrade {
-	font-weight: bold;
-}
-
-.involvementList {
-	list-style-type: disc;
-	padding-left: 1.5rem;
-}
-
-.involvementItem {
-	margin-bottom: 1rem;
-	line-height: 1.6;
-}
-
-@media screen and (max-width: 768px) {
-	.profile {
-		flex-direction: column;
-		text-align: center;
-	}
-
-	.imageWrapper {
-		margin-right: 0;
-		margin-bottom: 1rem;
-	}
-
-	.skillsGrid {
-		grid-template-columns: repeat(2, 1fr);
-	}
-
-	.socialLinks {
-		justify-content: center;
-	}
-}
-
-@media screen and (max-width: 480px) {
-	.container {
-		padding: 1rem;
-	}
-
-	.title {
-		font-size: 1.5rem;
-	}
-
-	.section {
-		padding: 1.5rem;
-	}
-
-	.skillsGrid {
-		grid-template-columns: 1fr;
-	}
-
-	.downloadText {
-		display: none;
-	}
-}
-.container {
-	max-width: 900px;
-	margin: 0 auto;
-	padding: 2rem;
-	font-family: 'JetBrains Mono', monospace;
-}
-
-.title {
-	font-size: 2rem;
-	font-weight: bold;
-	color: var(--accent-color);
-	margin-bottom: 2rem;
-	display: flex;
-	align-items: center;
-}
-
-.icon {
-	margin-right: 1rem;
-}
-
-.profile {
-	display: flex;
-	align-items: center;
-	background-color: var(--article-bg);
-	padding: 2rem;
-	border-radius: 10px;
-	margin-bottom: 3rem;
-}
-
-.imageWrapper {
-	flex-shrink: 0;
-	width: 150px;
-	height: 150px;
-	margin-right: 2rem;
-}
-
-.profileImage {
-	border-radius: 50%;
-	object-fit: cover;
-}
-
-.profileInfo {
-	display: flex;
-	flex-direction: column;
-}
-
-.name {
-	font-size: 1.5rem;
-	font-weight: bold;
-	margin-bottom: 0.5rem;
-}
-
-.jobTitle {
-	font-size: 1.2rem;
-	color: var(--accent-color);
-	margin-bottom: 0.5rem;
-}
-
-.location {
-	font-size: 1rem;
-	margin-bottom: 1rem;
-}
-
-.socialLinks {
-	display: flex;
-	gap: 1rem;
-	align-items: center;
-}
-
-.socialLink {
-	color: var(--accent-color);
-	transition: color 0.3s ease;
-	display: flex;
-	align-items: center;
-}
-
-.socialLink:hover {
 	color: var(--text-color);
 }
 
-.downloadLink {
-	display: flex;
-	align-items: center;
-	gap: 0.5rem;
-}
-
-.downloadText {
-	font-size: 0.9rem;
-	white-space: nowrap;
-}
-
-.content {
-	display: flex;
-	flex-direction: column;
-	gap: 3rem;
-}
-
-.section {
-	background-color: var(--article-bg);
-	padding: 2rem;
-	border-radius: 10px;
-}
-
-.sectionTitle {
-	font-size: 1.5rem;
-	font-weight: bold;
-	margin-bottom: 1.5rem;
-	display: flex;
-	align-items: center;
-}
-
-.paragraph {
-	margin-bottom: 1rem;
-	line-height: 1.6;
-}
-
-.skillsGrid {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-	gap: 1rem;
-}
-
-.skill {
-	background-color: var(--button-bg);
-	color: var(--button-text);
-	padding: 0.5rem 1rem;
-	border-radius: 5px;
-	text-align: center;
-	font-size: 0.9rem;
-}
-
-.timeline {
-	list-style-type: none;
-	padding: 0;
-}
-
-.timelineItem {
-	position: relative;
-	padding-left: 2rem;
-	padding-bottom: 2rem;
-	border-left: 2px solid var(--accent-color);
-}
-
-.timelineItem::before {
-	content: '';
-	width: 1rem;
-	height: 1rem;
-	background-color: var(--accent-color);
-	border-radius: 50%;
-	position: absolute;
-	left: -0.5rem;
-	top: 0;
-}
-
-.jobTitle {
-	font-size: 1.2rem;
-	font-weight: bold;
-	margin-bottom: 0.5rem;
-}
-
-.jobDate {
-	font-size: 0.9rem;
-	color: var(--accent-color);
-	margin-bottom: 0.5rem;
-}
-
-.jobDescription {
-	line-height: 1.6;
-}
-
-.educationList {
-	list-style-type: none;
-	padding: 0;
-}
-
-.educationItem {
-	margin-bottom: 2rem;
-}
-
-.schoolName {
-	font-size: 1.2rem;
-	font-weight: bold;
-	margin-bottom: 0.5rem;
-}
-
 .educationDate {
 	font-size: 0.9rem;
 	color: var(--accent-color);
@@ -691,20 +250,25 @@
 
 .educationDetail {
 	margin-bottom: 0.5rem;
+	color: var(--text-color-secondary);
 }
 
 .educationGrade {
 	font-weight: bold;
+	color: var(--text-color);
 }
 
 .involvementList {
 	list-style-type: disc;
-	padding-left: 1.5rem;
+	padding-left: 3rem;
+	padding-right: 1.5rem;
+	padding-bottom: 1.5rem;
 }
 
 .involvementItem {
 	margin-bottom: 1rem;
 	line-height: 1.6;
+	color: var(--text-color-secondary);
 }
 
 @media screen and (max-width: 768px) {

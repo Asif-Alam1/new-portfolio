@@ -1,5 +1,7 @@
 .projectsContainer {
-	padding: 2rem 0;
+	padding: 2rem;
+	max-width: 1200px;
+	margin: 0 auto;
 }
 
 .heading {
@@ -7,6 +9,7 @@
 	margin-bottom: 2rem;
 	text-align: center;
 	color: var(--accent-color);
+	font-weight: bold;
 }
 
 .filterContainer {
@@ -16,16 +19,35 @@
 	margin-bottom: 2rem;
 }
 
-.searchInput {
+.searchInputWrapper {
+	position: relative;
 	width: 100%;
 	max-width: 500px;
-	padding: 0.75rem;
+	margin-bottom: 1rem;
+}
+
+.searchIcon {
+	position: absolute;
+	left: 1rem;
+	top: 50%;
+	transform: translateY(-50%);
+	color: var(--text-color-secondary);
+}
+
+.searchInput {
+	width: 100%;
+	padding: 0.75rem 1rem 0.75rem 3rem;
 	font-size: 1rem;
 	border: 2px solid var(--accent-color);
-	border-radius: 5px;
+	border-radius: 25px;
 	background-color: var(--main-bg);
 	color: var(--text-color);
-	margin-bottom: 1rem;
+	transition: all 0.3s ease;
+}
+
+.searchInput:focus {
+	outline: none;
+	box-shadow: 0 0 0 3px rgba(var(--accent-color-rgb), 0.3);
 }
 
 .tagFilter {
@@ -50,6 +72,8 @@
 .tagButton.active {
 	background-color: var(--accent-color);
 	color: var(--main-bg);
+	transform: translateY(-2px);
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .projectGrid {
@@ -65,6 +89,194 @@
 	margin-top: 2rem;
 }
 
+.card {
+	position: relative;
+	height: 250px;
+	border-radius: 10px;
+	overflow: hidden;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+	cursor: pointer;
+}
+
+.card:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.imageContainer {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+.image {
+	transition: transform 0.3s ease;
+}
+
+.card:hover .image {
+	transform: scale(1.1);
+}
+
+.overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0, 0, 0, 0.7);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 1rem;
+	text-align: center;
+	opacity: 0;
+	transition: opacity 0.3s ease;
+}
+
+.card:hover .overlay {
+	opacity: 1;
+}
+
+.projectName {
+	font-size: 1.5rem;
+	color: var(--accent-color);
+	margin-bottom: 0.5rem;
+}
+
+.tags {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 0.5rem;
+}
+
+.tag {
+	padding: 0.25rem 0.5rem;
+	border-radius: 15px;
+	font-size: 0.8rem;
+	color: var(--main-bg);
+}
+
+.modalOverlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0.8);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 1000;
+}
+
+.modalContent {
+	background-color: var(--main-bg);
+	padding: 2rem;
+	border-radius: 10px;
+	max-width: 600px;
+	width: 90%;
+	max-height: 90vh;
+	overflow-y: auto;
+	position: relative;
+}
+
+.closeButton {
+	position: absolute;
+	top: 1rem;
+	right: 1rem;
+	font-size: 1.5rem;
+	background: none;
+	border: none;
+	color: var(--text-color);
+	cursor: pointer;
+}
+
+.modalTitle {
+	font-size: 2rem;
+	color: var(--accent-color);
+	margin-bottom: 1rem;
+}
+
+.modalImageContainer {
+	position: relative;
+	width: 100%;
+	height: 300px;
+	margin-bottom: 1rem;
+	border-radius: 10px;
+	overflow: hidden;
+}
+
+.modalImage {
+	object-fit: cover;
+}
+
+.modalDescription {
+	font-size: 1rem;
+	color: var(--text-color);
+	margin-bottom: 1rem;
+	line-height: 1.6;
+}
+
+.modalTags {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.5rem;
+	margin-bottom: 1rem;
+}
+
+.modalCta {
+	display: flex;
+	gap: 1rem;
+}
+
+.modalButton {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	padding: 0.5rem 1rem;
+	border: none;
+	border-radius: 5px;
+	background-color: var(--accent-color);
+	color: var(--main-bg);
+	font-size: 0.9rem;
+	text-decoration: none;
+	transition: background-color 0.3s ease;
+}
+
+.modalButton:hover {
+	background-color: var(--text-color);
+}
+
+/* Tag-specific styles */
+.next {
+	background-color: #0070f3;
+}
+.node {
+	background-color: #43853d;
+}
+.mongodb {
+	background-color: #13aa52;
+}
+.react {
+	background-color: #61dafb;
+	color: #282c34;
+}
+.redux {
+	background-color: #764abc;
+}
+.tailwind {
+	background-color: #38b2ac;
+}
+.materialui {
+	background-color: #0081cb;
+}
+.defaultTag {
+	background-color: #888888;
+}
+
 @media (max-width: 768px) {
 	.heading {
 		font-size: 2rem;
@@ -72,5 +284,17 @@
 
 	.projectGrid {
 		grid-template-columns: 1fr;
+	}
+
+	.modalContent {
+		padding: 1.5rem;
+	}
+
+	.modalTitle {
+		font-size: 1.5rem;
+	}
+
+	.modalImageContainer {
+		height: 200px;
 	}
 }

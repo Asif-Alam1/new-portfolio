@@ -1,5 +1,8 @@
-import React from 'react'
+'use client'
+
+import React, { useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import {
 	Terminal,
 	Code,
@@ -9,17 +12,30 @@ import {
 	Users,
 	Github,
 	Linkedin,
-	Download
+	Download,
+	ChevronDown,
+	ChevronUp
 } from 'lucide-react'
-import Link from 'next/link'
-import styles from '../styles/AboutPage.module.css'
 import CustomHead from '../components/Head'
+import styles from '../styles/AboutPage.module.css'
 
 const AboutPage = () => {
+	const [expandedSections, setExpandedSections] = useState({
+		profile: false,
+		expertise: false,
+		journey: false,
+		education: false,
+		involvement: false
+	})
+
+	const toggleSection = section => {
+		setExpandedSections(prev => ({ ...prev, [section]: !prev[section] }))
+	}
+
 	return (
 		<>
 			<CustomHead
-				title='About Me Page'
+				title='About Asif Alam - Software Engineer Extraordinaire'
 				description='Learn about Asif Alam, a top computer engineering student and software engineer with expertise in Next.js, React.js, React Native and Nest.js.'
 			/>
 			<div className={styles.container}>
@@ -72,11 +88,11 @@ const AboutPage = () => {
 				</div>
 
 				<div className={styles.content}>
-					<section className={styles.section}>
-						<h3 className={styles.sectionTitle}>
-							<Code className={styles.icon} />
-							Profile
-						</h3>
+					<Section
+						title='Profile'
+						icon={<Code className={styles.icon} />}
+						expanded={expandedSections.profile}
+						toggleExpand={() => toggleSection('profile')}>
 						<p className={styles.paragraph}>
 							A top software engineer and computer engineering student with
 							remarkably high grades and diverse work experience across various
@@ -90,13 +106,13 @@ const AboutPage = () => {
 							With a year of field experience, I'm eager to tackle new
 							challenges and push the boundaries of technology.
 						</p>
-					</section>
+					</Section>
 
-					<section className={styles.section}>
-						<h3 className={styles.sectionTitle}>
-							<Cpu className={styles.icon} />
-							Technical Expertise
-						</h3>
+					<Section
+						title='Technical Expertise'
+						icon={<Cpu className={styles.icon} />}
+						expanded={expandedSections.expertise}
+						toggleExpand={() => toggleSection('expertise')}>
 						<div className={styles.skillsGrid}>
 							{[
 								'Next.js',
@@ -112,84 +128,58 @@ const AboutPage = () => {
 								</span>
 							))}
 						</div>
-					</section>
+					</Section>
 
-					<section className={styles.section}>
-						<h3 className={styles.sectionTitle}>
-							<Zap className={styles.icon} />
-							Professional Journey
-						</h3>
+					<Section
+						title='Professional Journey'
+						icon={<Zap className={styles.icon} />}
+						expanded={expandedSections.journey}
+						toggleExpand={() => toggleSection('journey')}>
 						<ul className={styles.timeline}>
-							<li className={styles.timelineItem}>
-								<h4 className={styles.jobTitle}>Lead Engineer at QWERTY</h4>
-								<p className={styles.jobDate}>May 2024 - Present</p>
-								<p className={styles.jobDescription}>
-									Leading ideation and development, working on various projects,
-									providing innovative and sustainable solutions based on client
-									needs.
-								</p>
-							</li>
-							<li className={styles.timelineItem}>
-								<h4 className={styles.jobTitle}>
-									Freelance Full Stack Developer
-								</h4>
-								<p className={styles.jobDate}>May 2023 - May 2024</p>
-								<p className={styles.jobDescription}>
-									Built a diverse portfolio of projects using the latest
-									technologies and best practices while interacting with clients
-									and corporations.
-								</p>
-							</li>
-							<li className={styles.timelineItem}>
-								<h4 className={styles.jobTitle}>
-									Full Stack Developer at Stitches Studio
-								</h4>
-								<p className={styles.jobDate}>March 2024 - May 2024</p>
-								<p className={styles.jobDescription}>
-									Worked in a SCRUM environment on the Education Basket Systems,
-									using React.js and Nest.js to upgrade and maintain the
-									existing system.
-								</p>
-							</li>
+							<TimelineItem
+								title='Lead Engineer at QWERTY'
+								date='May 2024 - Present'
+								description='Leading ideation and development, working on various projects, providing innovative and sustainable solutions based on client needs.'
+							/>
+							<TimelineItem
+								title='Freelance Full Stack Developer'
+								date='May 2023 - May 2024'
+								description='Built a diverse portfolio of projects using the latest technologies and best practices while interacting with clients and corporations.'
+							/>
+							<TimelineItem
+								title='Full Stack Developer at Stitches Studio'
+								date='March 2024 - May 2024'
+								description='Worked in a SCRUM environment on the Education Basket Systems, using React.js and Nest.js to upgrade and maintain the existing system.'
+							/>
 						</ul>
-					</section>
+					</Section>
 
-					<section className={styles.section}>
-						<h3 className={styles.sectionTitle}>
-							<Book className={styles.icon} />
-							Educational Background
-						</h3>
+					<Section
+						title='Educational Background'
+						icon={<Book className={styles.icon} />}
+						expanded={expandedSections.education}
+						toggleExpand={() => toggleSection('education')}>
 						<ul className={styles.educationList}>
-							<li className={styles.educationItem}>
-								<h4 className={styles.schoolName}>
-									Holy Spirit University of Kaslik (USEK)
-								</h4>
-								<p className={styles.educationDate}>September 2021 - Present</p>
-								<p className={styles.educationDetail}>
-									Bachelor's in Computer Engineering
-								</p>
-								<p className={styles.educationGrade}>Current GPA: 90.15</p>
-							</li>
-							<li className={styles.educationItem}>
-								<h4 className={styles.schoolName}>GGTA2 Public School</h4>
-								<p className={styles.educationDate}>
-									September 2019 - June 2021
-								</p>
-								<p className={styles.educationDetail}>
-									Lebanese Baccalaureate in Life Sciences
-								</p>
-								<p className={styles.educationGrade}>
-									Grade: 18.4/20 (Ranked 19th in Lebanon)
-								</p>
-							</li>
+							<EducationItem
+								school='Holy Spirit University of Kaslik (USEK)'
+								date='September 2021 - Present'
+								degree="Bachelor's in Computer Engineering"
+								grade='Current GPA: 90.15'
+							/>
+							<EducationItem
+								school='GGTA2 Public School'
+								date='September 2019 - June 2021'
+								degree='Lebanese Baccalaureate in Life Sciences'
+								grade='Grade: 18.4/20 (Ranked 19th in Lebanon)'
+							/>
 						</ul>
-					</section>
+					</Section>
 
-					<section className={styles.section}>
-						<h3 className={styles.sectionTitle}>
-							<Users className={styles.icon} />
-							Community Involvement
-						</h3>
+					<Section
+						title='Community Involvement'
+						icon={<Users className={styles.icon} />}
+						expanded={expandedSections.involvement}
+						toggleExpand={() => toggleSection('involvement')}>
 						<ul className={styles.involvementList}>
 							<li className={styles.involvementItem}>
 								Active Committee Member at IEEE USEK SB (December 2022 -
@@ -203,17 +193,43 @@ const AboutPage = () => {
 								Social Worker at APSAD (October 2021 - February 2022)
 							</li>
 						</ul>
-					</section>
+					</Section>
 				</div>
 			</div>
 		</>
 	)
 }
 
-export async function getStaticProps() {
-	return {
-		props: { title: 'About Me Page' }
-	}
-}
+const Section = ({ title, icon, children, expanded, toggleExpand }) => (
+	<section className={`${styles.section} ${expanded ? styles.expanded : ''}`}>
+		<h3 className={styles.sectionTitle} onClick={toggleExpand}>
+			{icon}
+			{title}
+			{expanded ? (
+				<ChevronUp className={styles.icon} />
+			) : (
+				<ChevronDown className={styles.icon} />
+			)}
+		</h3>
+		<div className={styles.sectionContent}>{children}</div>
+	</section>
+)
+
+const TimelineItem = ({ title, date, description }) => (
+	<li className={styles.timelineItem}>
+		<h4 className={styles.jobTitle}>{title}</h4>
+		<p className={styles.jobDate}>{date}</p>
+		<p className={styles.jobDescription}>{description}</p>
+	</li>
+)
+
+const EducationItem = ({ school, date, degree, grade }) => (
+	<li className={styles.educationItem}>
+		<h4 className={styles.schoolName}>{school}</h4>
+		<p className={styles.educationDate}>{date}</p>
+		<p className={styles.educationDetail}>{degree}</p>
+		<p className={styles.educationGrade}>{grade}</p>
+	</li>
+)
 
 export default AboutPage

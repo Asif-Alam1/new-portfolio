@@ -1,19 +1,26 @@
-import { useState } from 'react'
+'use client'
+
+import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import GitHubCalendar from 'react-github-calendar'
-import RepoCard from '../components/RepoCard'
-import styles from '../styles/GithubPage.module.css'
+import { Search, Star, GitFork, Eye, Github, ExternalLink } from 'lucide-react'
 import CustomHead from '../components/Head'
+import styles from '../styles/GithubPage.module.css'
 
 const GithubPage = ({ repos, user }) => {
 	const [filter, setFilter] = useState('')
+	const [filteredRepos, setFilteredRepos] = useState(repos)
+	const [selectedRepo, setSelectedRepo] = useState(null)
 
-	const filteredRepos = repos.filter(
-		repo =>
-			repo.name.toLowerCase().includes(filter.toLowerCase()) ||
-			(repo.description &&
-				repo.description.toLowerCase().includes(filter.toLowerCase()))
-	)
+	useEffect(() => {
+		const filtered = repos.filter(
+			repo =>
+				repo.name.toLowerCase().includes(filter.toLowerCase()) ||
+				(repo.description &&
+					repo.description.toLowerCase().includes(filter.toLowerCase()))
+		)
+		setFilteredRepos(filtered)
+	}, [filter, repos])
 
 	const theme = {
 		level0: '#161B22',
@@ -61,16 +68,23 @@ const GithubPage = ({ repos, user }) => {
 				</div>
 
 				<h2 className={styles.sectionTitle}>Top Repositories</h2>
-				<input
-					type='text'
-					placeholder='Search repositories...'
-					className={styles.searchInput}
-					onChange={e => setFilter(e.target.value)}
-				/>
+				<div className={styles.searchInputWrapper}>
+					<Search className={styles.searchIcon} />
+					<input
+						type='text'
+						placeholder='Search repositories...'
+						className={styles.searchInput}
+						onChange={e => setFilter(e.target.value)}
+					/>
+				</div>
 
 				<div className={styles.repoContainer}>
 					{filteredRepos.map(repo => (
-						<RepoCard key={repo.id} repo={repo} />
+						<RepoCard
+							key={repo.id}
+							repo={repo}
+							onClick={() => setSelectedRepo(repo)}
+						/>
 					))}
 				</div>
 
@@ -84,7 +98,92 @@ const GithubPage = ({ repos, user }) => {
 					/>
 				</div>
 			</div>
+			{selectedRepo && (
+				<RepoModal repo={selectedRepo} onClose={() => setSelectedRepo(null)} />
+			)}
 		</>
+	)
+}
+
+const RepoCard = ({ repo, onClick }) => {
+	return (
+		<div className={styles.card} onClick={onClick}>
+			<div className={styles.content}>
+				<h3 className={styles.title}>{repo.name}</h3>
+				<p className={styles.description}>{repo.description}</p>
+			</div>
+			<div className={styles.stats}>
+				<div className={styles.statRow}>
+					<div className={styles.stat}>
+						<Star className={styles.icon} /> {repo.stargazers_count}
+					</div>
+					<div className={styles.stat}>
+						<GitFork className={styles.icon} /> {repo.forks}
+					</div>
+					<div className={styles.stat}>
+						<Eye className={styles.icon} /> {repo.watchers}
+					</div>
+				</div>
+			</div>
+		</div>
+	)
+}
+
+const RepoModal = ({ repo, onClose }) => {
+	return (
+		<div className={styles.modalOverlay} onClick={onClose}>
+			<div className={styles.modalContent} onClick={e => e.stopPropagation()}>
+				<button className={styles.closeButton} onClick={onClose}>
+					&times;
+				</button>
+				<h3 className={styles.modalTitle}>{repo.name}</h3>
+				<p className={styles.modalDescription}>{repo.description}</p>
+				<div className={styles.modalStats}>
+					<div className={styles.modalStat}>
+						<Star className={styles.icon} /> {repo.stargazers_count} stars
+					</div>
+					<div className={styles.modalStat}>
+						<GitFork className={styles.icon} /> {repo.forks} forks
+					</div>
+					<div className={styles.modalStat}>
+						<Eye className={styles.icon} /> {repo.watchers} watchers
+					</div>
+				</div>
+				<div className={styles.modalLanguages}>
+					<h4>Languages:</h4>
+					<div className={styles.languageList}>
+						{repo.language && (
+							<span
+								className={`${styles.language} ${
+									styles[repo.language.toLowerCase()]
+								}`}>
+								{repo.language}
+							</span>
+						)}
+					</div>
+				</div>
+				<div className={styles.modalLinks}>
+					<a
+						href={repo.html_url}
+						target='_blank'
+						rel='noopener noreferrer'
+						className={styles.modalButton}>
+						<Github size={18} />
+						View on GitHub
+					</a>
+					{repo.homepage && (
+						<a
+							href={repo.homepage}
+							target='_blank'
+							rel='noopener noreferrer'
+							className={styles.modalButton}>
+							<ExternalLink size={18} />
+							Live Demo
+						</a>
+					)}
+				</div>
+			</div>
+		</div>
 	)
 }
 
