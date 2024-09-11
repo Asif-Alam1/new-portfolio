@@ -1,0 +1,140 @@
+.loaderContainer {
+	position: fixed;
+	inset: 0;
+	z-index: 50;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #1e1e1e;
+	color: #d4d4d4;
+	animation: fadeOut 0.5s ease-in-out 3.5s forwards;
+}
+
+.loaderContent {
+	text-align: center;
+}
+
+.codeEditor {
+	background-color: #252526;
+	border-radius: 6px;
+	padding: 20px;
+	margin-bottom: 20px;
+	font-family: 'Consolas', 'Courier New', monospace;
+	font-size: 14px;
+	line-height: 1.5;
+	text-align: left;
+	width: 400px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.line {
+	margin-bottom: 5px;
+	white-space: pre;
+}
+
+.function {
+	color: #569cd6;
+}
+.name {
+	color: #dcdcaa;
+}
+.punctuation {
+	color: #d4d4d4;
+}
+.keyword {
+	color: #c586c0;
+}
+.variable {
+	color: #9cdcfe;
+}
+.operator {
+	color: #d4d4d4;
+}
+.string {
+	color: #ce9178;
+}
+
+.cursor {
+	display: inline-block;
+	width: 10px;
+	height: 20px;
+	background-color: #d4d4d4;
+	animation: blink 0.7s infinite;
+	margin-top: -25px;
+	margin-left: 390px;
+}
+
+.loaderTitle {
+	margin-top: 20px;
+	margin-bottom: 10px;
+	font-size: 1.5rem;
+	font-weight: bold;
+	color: #569cd6;
+}
+
+.loaderText {
+	font-size: 1rem;
+	color: #9cdcfe;
+}
+
+@keyframes fadeOut {
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+		visibility: hidden;
+	}
+}
+
+@keyframes blink {
+	0% {
+		opacity: 0;
+	}
+	50% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+.codeEditor {
+	opacity: 0;
+	transform: translateY(20px);
+	animation: fadeInUp 0.5s ease-out forwards;
+}
+
+.line {
+	opacity: 0;
+	animation: typeIn 0.1s ease-out forwards;
+}
+
+.line:nth-child(1) {
+	animation-delay: 0.2s;
+}
+.line:nth-child(2) {
+	animation-delay: 0.7s;
+}
+.line:nth-child(3) {
+	animation-delay: 1.2s;
+}
+.line:nth-child(4) {
+	animation-delay: 1.7s;
+}
+.line:nth-child(5) {
+	animation-delay: 2.2s;
+}
+
+@keyframes fadeInUp {
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes typeIn {
+	to {
+		opacity: 1;
+	}
+}
