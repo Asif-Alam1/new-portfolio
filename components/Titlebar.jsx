@@ -186,7 +186,7 @@ const Titlebar = () => {
 					rel='noopener noreferrer'
 					className={styles.iconButton}
 					title='GitHub'>
-					<Github size={14} />
+					<Github size={14} style={{ marginRight: '0.5rem' }} />
 				</Link>
 				<Link
 					href='https://linkedin.com/in/asif-alam-talukder'
