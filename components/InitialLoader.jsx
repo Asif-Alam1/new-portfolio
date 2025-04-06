@@ -31,7 +31,7 @@ export default function InitialLoader() {
 						<span className='text-blue-300'>skills</span> = [
 						<span className='text-orange-300'>"React"</span>,{' '}
 						<span className='text-orange-300'>"Next.js"</span>,{' '}
-						<span className='text-orange-300'>"Node.js"</span>];
+						<span className='text-orange-300'>"React Native"</span>];
 					</div>
 					<div className='mb-2 pl-4'>
 						<span className='text-purple-400'>return</span> {`{ `}

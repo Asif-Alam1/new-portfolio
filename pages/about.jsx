@@ -93,19 +93,16 @@ const AboutPage = () => {
 						icon={<Code className={styles.icon} />}
 						expanded={expandedSections.profile}
 						toggleExpand={() => toggleSection('profile')}>
-						<p className={styles.paragraph}>
-							A top software engineer and computer engineering student with
-							remarkably high grades and diverse work experience across various
-							sectors.
-						</p>
-						<p className={styles.paragraph}>
-							Equipped with excellent critical thinking and problem-solving
-							skills, multilingual capabilities, and a passion for programming.
-						</p>
-						<p className={styles.paragraph}>
-							With a year of field experience, I'm eager to tackle new
-							challenges and push the boundaries of technology.
-						</p>
+	<p className={styles.paragraph}>
+  An accomplished software engineer and computer engineering student, celebrated for stellar academic achievements and a rich spectrum of professional experiences spanning multiple industries.
+</p>
+<p className={styles.paragraph}>
+  My strong analytical skills, innovative approach to problem-solving, and fluency in several languages empower me to excel in complex technical environments, while my enduring passion for coding fuels continuous learning and creative breakthroughs.
+</p>
+<p className={styles.paragraph}>
+  With over a year of hands-on industry experience, I thrive on tackling challenging projects and pushing technological boundaries to deliver cutting-edge solutions.
+</p>
+
 					</Section>
 
 					<Section
@@ -121,7 +118,6 @@ const AboutPage = () => {
 								'Java',
 								'Tailwind CSS',
 								'React Native',
-								'Python'
 							].map(skill => (
 								<span key={skill} className={styles.skill}>
 									{skill}
