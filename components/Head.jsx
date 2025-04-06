@@ -1,9 +1,9 @@
 import Head from 'next/head'
 
 const CustomHead = ({ title, description, image }) => {
-	const defaultTitle = 'Asif Alam | Software Developer'
+	const defaultTitle = 'Asif Alam | Software Engineer'
 	const defaultDescription =
-		'Asif Alam is a top computer engineering student and full stack developer with experience in Next.js, React.js, and Nest.js. Explore his portfolio of innovative web projects.'
+		'Asif Alam is a top computer engineering student and full stack Engineer with experience in Next.js, React.js, and Nest.js. Explore his portfolio of innovative web projects.'
 	const defaultImage = 'https://asif-alam-portfolio.vercel.app/export.png' // Replace with your actual OG image URL
 
 	return (
@@ -15,7 +15,7 @@ const CustomHead = ({ title, description, image }) => {
 			{/* Keywords based on skills and experience */}
 			<meta
 				name='keywords'
-				content='Asif Alam, Software Developer, Full Stack Developer, Next.js, React.js, Nest.js, Tailwind CSS, React Native, Database Management, Software Engineering, MERN Stack, QWERTY, Stitches Studio'
+				content='Asif Alam, Software Engineer, Full Stack Engineer, Next.js, React.js, Nest.js, Tailwind CSS, React Native, Database Management, Software Engineering, MERN Stack, QWERTY, Stitches Studio'
 			/>
 			{/* Open Graph / Facebook */}
 			<meta property='og:type' content='website' />
@@ -72,7 +72,7 @@ const CustomHead = ({ title, description, image }) => {
               "https://github.com/asif-alam1",
               "https://www.linkedin.com/in/asif-alam-talukder"
             ],
-            "jobTitle": "Software Developer",
+            "jobTitle": "Software Engineer",
             "worksFor": {
               "@type": "Organization",
               "name": "QWERTY"

@@ -138,12 +138,12 @@ const AboutPage = () => {
 								description='Leading ideation and development, working on various projects, providing innovative and sustainable solutions based on client needs.'
 							/>
 							<TimelineItem
-								title='Freelance Full Stack Developer'
+								title='Freelance Full Stack Engineer'
 								date='May 2023 - May 2024'
 								description='Built a diverse portfolio of projects using the latest technologies and best practices while interacting with clients and corporations.'
 							/>
 							<TimelineItem
-								title='Full Stack Developer at Stitches Studio'
+								title='Full Stack Engineer at Stitches Studio'
 								date='March 2024 - May 2024'
 								description='Worked in a SCRUM environment on the Education Basket Systems, using React.js and Nest.js to upgrade and maintain the existing system.'
 							/>

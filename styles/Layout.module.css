@@ -1,38 +1,221 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&display=swap');
 
+/* Main container */
 .main {
-	display: flex;
-	background: var(--main-bg);
-	height: calc(100vh - 30px - 25px); /* Adjust for titlebar and bottombar */
-	overflow: hidden; /* Prevent scrollbar on the main container */
+  display: flex;
+  background: var(--main-bg);
+  height: calc(100vh - 30px - 25px); /* Adjust for titlebar and bottombar */
+  overflow: hidden; /* Prevent scrollbar on the main container */
+  position: relative;
 }
 
+/* Content wrapper (contains tabsbar and content) */
+.contentWrapper {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: margin-left 0.3s ease;
+}
+
+/* Main content area */
 .content {
-	padding: 2rem;
-	color: var(--text-color);
-	font-family: 'JetBrains Mono', monospace;
-	flex: 1;
-	overflow-y: auto; /* Allow scrolling in the content area */
-	height: 100%; /* Ensure the content takes full height of its container */
-	scroll-behavior: smooth;
+  padding: 1.5rem;
+  color: var(--text-color);
+  font-family: 'JetBrains Mono', monospace;
+  flex: 1;
+  overflow-y: auto;
+  height: 100%;
+  scroll-behavior: smooth;
 }
 
+/* Custom scrollbar */
 .content::-webkit-scrollbar {
-	width: 15px;
+  width: 12px;
 }
 
 .content::-webkit-scrollbar-track {
-	background: var(--scrollbar-track-bg);
-	border-left: 1px solid #1e1f29;
+  background: var(--scrollbar-track-bg);
+  border-left: 1px solid #1e1f29;
 }
 
 .content::-webkit-scrollbar-thumb {
-	background: var(--scrollbar-thumb-bg);
-	border-left: 1px solid #1e1f29;
+  background: var(--scrollbar-thumb-bg);
+  border-left: 1px solid #1e1f29;
 }
 
-@media screen and (max-width: 600px) {
-	.content {
-		padding: 2rem 1rem;
-	}
+/* Sidebar and Explorer containers */
+.sidebarContainer,
+.explorerContainer {
+  height: 100%;
+  overflow-y: hidden;
+  transition: transform 0.3s ease, opacity 0.2s ease, width 0.3s ease;
+}
+
+/* Sidebar specific styling */
+.sidebarContainer {
+  width: 60px; /* Default collapsed width */
+  z-index: 10;
+}
+
+/* Explorer specific styling */
+.explorerContainer {
+  width: 250px;
+  border-right: 1px solid var(--explorer-border);
+  z-index: 9;
+}
+
+/* Mobile toggle buttons for sidebar and explorer */
+.sidebarToggle,
+.explorerToggle {
+  position: absolute;
+  z-index: 20;
+  background-color: var(--accent-color);
+  color: var(--main-bg);
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.sidebarToggle {
+  top: 45px;
+  left: 10px;
+}
+
+.explorerToggle {
+  top: 45px;
+  left: 56px;
+}
+
+.sidebarToggle:hover,
+.explorerToggle:hover {
+  transform: scale(1.05);
+}
+
+.sidebarToggle.active,
+.explorerToggle.active {
+  background-color: var(--text-color);
+}
+
+/* Overlay for mobile when sidebar/explorer is open */
+.overlay {
+  position: fixed;
+  top: 30px; /* Below titlebar */
+  left: 0;
+  right: 0;
+  bottom: 25px; /* Above bottombar */
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 8;
+  backdrop-filter: blur(2px);
+}
+
+/* Responsive breakpoints */
+@media screen and (min-width: 1600px) {
+  .sidebarContainer {
+    width: 70px; /* Slightly wider sidebar on large screens */
+  }
+
+  .explorerContainer {
+    width: 300px; /* Wider explorer on large screens */
+  }
+
+  .content {
+    padding: 2rem;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .content {
+    padding: 1.25rem;
+  }
+}
+
+/* Tablet breakpoint */
+@media screen and (max-width: 992px) {
+  .sidebarContainer {
+    width: 50px; /* Narrower sidebar on smaller screens */
+  }
+
+  .explorerContainer {
+    width: 200px; /* Narrower explorer on smaller screens */
+  }
+
+  .content {
+    padding: 1rem;
+  }
+}
+
+/* Mobile breakpoint */
+@media screen and (max-width: 768px) {
+  /* Move sidebar and explorer off-screen by default */
+  .sidebarContainer,
+  .explorerContainer {
+    position: fixed;
+    top: 30px; /* Below titlebar */
+    bottom: 25px; /* Above bottombar */
+    transform: translateX(-100%);
+    opacity: 0;
+    z-index: 10;
+    box-shadow: 4px 0 8px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Make sidebar wider on mobile when visible */
+  .sidebarContainer {
+    width: 180px;
+    left: 0;
+  }
+
+  /* Show sidebar when visible class is applied */
+  .sidebarContainer.visible,
+  .explorerContainer.visible {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  /* Explorer starts after the sidebar */
+  .explorerContainer {
+    width: 260px;
+    left: 0;
+  }
+
+  .content {
+    padding: 1rem 0.75rem;
+  }
+
+  /* Add bottom margin to account for mobile bottom nav */
+  .content {
+    padding-bottom: 2rem;
+  }
+}
+
+/* Small mobile breakpoint */
+@media screen and (max-width: 480px) {
+  .content {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .sidebarContainer {
+    width: 160px;
+  }
+
+  .explorerContainer {
+    width: 220px;
+  }
+
+  .sidebarToggle {
+    left: 8px;
+  }
+
+  .explorerToggle {
+    left: 52px;
+  }
 }
