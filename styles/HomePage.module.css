@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Roboto:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@900&family=Roboto:wght@300;400;700&family=Fira+Code:wght@400;500&display=swap');
 
 .container {
 	height: 100vh;
@@ -8,6 +8,7 @@
 	position: relative;
 	overflow: hidden;
 	background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+	position: relative;
 }
 
 .content {
@@ -18,10 +19,13 @@
 	max-width: 1200px;
 	padding: 0 2rem;
 	z-index: 2;
+	position: relative;
 }
 
 .textContent {
 	flex: 1;
+	position: relative;
+	z-index: 3;
 }
 
 .title {
@@ -33,6 +37,18 @@
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 	text-shadow: 0 0 10px rgba(97, 218, 251, 0.5);
+	position: relative;
+}
+
+.title::after {
+	content: '';
+	position: absolute;
+	bottom: -10px;
+	left: 0;
+	width: 100px;
+	height: 4px;
+	background: linear-gradient(90deg, #61dafb, transparent);
+	border-radius: 2px;
 }
 
 .titleLine {
@@ -103,7 +119,9 @@
 	width: 100%;
 	max-width: 500px;
 	height: auto;
-	filter: drop-shadow(0 0 10px rgba(97, 218, 251, 0.3));
+	filter: drop-shadow(0 0 20px rgba(97, 218, 251, 0.5));
+	position: relative;
+	z-index: 3;
 }
 
 .backgroundText {
@@ -121,6 +139,7 @@
 	font-weight: 900;
 	z-index: 1;
 	pointer-events: none;
+	overflow: hidden;
 }
 
 @media screen and (max-width: 1200px) {
@@ -174,8 +193,5 @@
 	}
 	.illustration {
 		max-width: 300px;
-	}
-	.backgroundText {
-		font-size: 4rem;
 	}
 }
