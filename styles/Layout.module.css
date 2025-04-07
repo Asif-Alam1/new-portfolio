@@ -1,3 +1,4 @@
+/* Replace the entire Layout.module.css with this implementation */
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&display=swap');
 
 /* Main container */
@@ -29,6 +30,7 @@
   overflow-y: auto;
   height: 100%;
   scroll-behavior: smooth;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
 }
 
 /* Custom scrollbar */
@@ -50,14 +52,15 @@
 .sidebarContainer,
 .explorerContainer {
   height: 100%;
-  overflow-y: hidden;
   transition: transform 0.3s ease, opacity 0.2s ease, width 0.3s ease;
+  overflow: hidden; /* Hide overflow content */
 }
 
 /* Sidebar specific styling */
 .sidebarContainer {
-  width: 60px; /* Default collapsed width */
+  width: auto; /* Let the inner component control width */
   z-index: 10;
+  flex-shrink: 0; /* Prevent shrinking */
 }
 
 /* Explorer specific styling */
@@ -65,45 +68,7 @@
   width: 250px;
   border-right: 1px solid var(--explorer-border);
   z-index: 9;
-}
-
-/* Mobile toggle buttons for sidebar and explorer */
-.sidebarToggle,
-.explorerToggle {
-  position: absolute;
-  z-index: 20;
-  background-color: var(--accent-color);
-  color: var(--main-bg);
-  border: none;
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease, background-color 0.3s ease;
-}
-
-.sidebarToggle {
-  top: 45px;
-  left: 10px;
-}
-
-.explorerToggle {
-  top: 45px;
-  left: 56px;
-}
-
-.sidebarToggle:hover,
-.explorerToggle:hover {
-  transform: scale(1.05);
-}
-
-.sidebarToggle.active,
-.explorerToggle.active {
-  background-color: var(--text-color);
+  flex-shrink: 0; /* Prevent shrinking */
 }
 
 /* Overlay for mobile when sidebar/explorer is open */
@@ -120,10 +85,6 @@
 
 /* Responsive breakpoints */
 @media screen and (min-width: 1600px) {
-  .sidebarContainer {
-    width: 70px; /* Slightly wider sidebar on large screens */
-  }
-
   .explorerContainer {
     width: 300px; /* Wider explorer on large screens */
   }
@@ -141,10 +102,6 @@
 
 /* Tablet breakpoint */
 @media screen and (max-width: 992px) {
-  .sidebarContainer {
-    width: 50px; /* Narrower sidebar on smaller screens */
-  }
-
   .explorerContainer {
     width: 200px; /* Narrower explorer on smaller screens */
   }
@@ -168,13 +125,7 @@
     box-shadow: 4px 0 8px rgba(0, 0, 0, 0.2);
   }
 
-  /* Make sidebar wider on mobile when visible */
-  .sidebarContainer {
-    width: 180px;
-    left: 0;
-  }
-
-  /* Show sidebar when visible class is applied */
+  /* Show sidebar/explorer when visible class is applied */
   .sidebarContainer.visible,
   .explorerContainer.visible {
     transform: translateX(0);
@@ -189,11 +140,7 @@
 
   .content {
     padding: 1rem 0.75rem;
-  }
-
-  /* Add bottom margin to account for mobile bottom nav */
-  .content {
-    padding-bottom: 2rem;
+    padding-bottom: 2rem; /* Add bottom margin to account for mobile bottom nav */
   }
 }
 
@@ -203,19 +150,7 @@
     padding: 0.75rem 0.5rem;
   }
 
-  .sidebarContainer {
-    width: 160px;
-  }
-
   .explorerContainer {
     width: 220px;
-  }
-
-  .sidebarToggle {
-    left: 8px;
-  }
-
-  .explorerToggle {
-    left: 52px;
   }
 }
