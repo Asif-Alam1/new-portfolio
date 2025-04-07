@@ -249,12 +249,7 @@ export default function HomePage() {
       />
 
       <div className={styles.container}>
-        {/* Editor line numbers - moved to relative positioning */}
-        <div className={styles.lineNumbers}>
-          {[...Array(20)].map((_, i) => (
-            <div key={i} className={styles.lineNumber}>{i + 1}</div>
-          ))}
-        </div>
+
 
         <div className={`${styles.content} ${isVisible ? styles.visible : ''}`}>
           <div className={styles.textContent}>
