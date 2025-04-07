@@ -302,7 +302,7 @@ export default function HomePage() {
                   onMouseOver={() => setActiveShortcut('projects')}
                   onMouseLeave={() => setActiveShortcut(null)}
                 >
-                  <span className={styles.buttonText}>View Work </span>
+                  <span className={styles.buttonText}>Projects </span>
                    <span className={styles.shortcut1}>
                                 Ctrl+P
     </span>
@@ -314,7 +314,7 @@ export default function HomePage() {
                   onMouseOver={() => setActiveShortcut('contact')}
                   onMouseLeave={() => setActiveShortcut(null)}
                 >
-                  <span className={styles.buttonText}>Contact Me</span>
+                  <span className={styles.buttonText}>Contact</span>
                  <span className={styles.shortcut1}>
        Ctrl+C
     </span>
