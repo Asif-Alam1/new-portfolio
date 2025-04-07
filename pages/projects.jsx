@@ -358,8 +358,10 @@ const ProjectsPage = ({ projects }) => {
                           className={styles.projectListButton}
                           onClick={(e) => e.stopPropagation()}
                         >
+                        <>
                           <ExternalLink size={14} />
                           <span>Demo</span>
+                          </>
                         </Link>
                       )}
                       {project.source_code && (
@@ -370,8 +372,10 @@ const ProjectsPage = ({ projects }) => {
                           className={styles.projectListButton}
                           onClick={(e) => e.stopPropagation()}
                         >
+                        <>
                           <Code size={14} />
                           <span>Code</span>
+                          </>
                         </Link>
                       )}
                     </div>
@@ -678,6 +682,7 @@ const ProjectModal = ({ project, onClose, activeTab, setActiveTab }) => {
                     target='_blank'
                     rel='noopener noreferrer'
                     className={styles.linkCard}>
+                    <>
                     <div className={styles.linkIcon}>
                       <GitBranch size={24} />
                     </div>
@@ -688,6 +693,7 @@ const ProjectModal = ({ project, onClose, activeTab, setActiveTab }) => {
                     <div className={styles.linkArrow}>
                       <ExternalLink size={16} />
                     </div>
+                    </>
                   </Link>
                 )}
 
@@ -697,6 +703,7 @@ const ProjectModal = ({ project, onClose, activeTab, setActiveTab }) => {
                     target='_blank'
                     rel='noopener noreferrer'
                     className={styles.linkCard}>
+                    <>
                     <div className={styles.linkIcon}>
                       <ExternalLink size={24} />
                     </div>
@@ -707,6 +714,7 @@ const ProjectModal = ({ project, onClose, activeTab, setActiveTab }) => {
                     <div className={styles.linkArrow}>
                       <ExternalLink size={16} />
                     </div>
+                    </>
                   </Link>
                 )}
 
@@ -740,8 +748,10 @@ const ProjectModal = ({ project, onClose, activeTab, setActiveTab }) => {
                 target='_blank'
                 rel='noopener noreferrer'
                 className={styles.modalButton}>
+                <>
                 <Code size={18} />
                 <span>Source Code</span>
+                </>
               </Link>
             )}
             {project.demo && (
@@ -750,8 +760,10 @@ const ProjectModal = ({ project, onClose, activeTab, setActiveTab }) => {
                 target='_blank'
                 rel='noopener noreferrer'
                 className={`${styles.modalButton} ${styles.primaryButton}`}>
+                <>
                 <ExternalLink size={18} />
                 <span>Live Demo</span>
+                </>
               </Link>
             )}
           </div>

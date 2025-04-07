@@ -86,7 +86,7 @@ const AboutPage = () => {
           <Terminal className={styles.icon} />
           <span className={styles.titleCode}>
             <span className={styles.keyword}>const  </span>
-            <span className={styles.variable}>Engineer</span> =
+            <span className={styles.variable}> Engineer</span> =
             <span className={styles.string}>"Asif Alam"</span>;
           </span>
         </h2>
