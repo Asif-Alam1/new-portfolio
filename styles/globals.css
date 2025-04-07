@@ -225,3 +225,100 @@
 .animate-float {
   animation: float 3s ease-in-out infinite;
 }
+
+/* Add these additional styles to your globals.css file */
+
+/* Animation utilities */
+@keyframes blob {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(20px, -20px) scale(1.1);
+  }
+  50% {
+    transform: translate(0, 20px) scale(1);
+  }
+  75% {
+    transform: translate(-20px, -20px) scale(0.9);
+  }
+}
+
+.animate-blob {
+  animation: blob 10s infinite;
+}
+
+.animation-delay-2000 {
+  animation-delay: 2s;
+}
+
+.animation-delay-4000 {
+  animation-delay: 4s;
+}
+
+/* Hide scrollbars but allow scrolling */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari and Opera */
+}
+
+/* Custom Tailwind utilities */
+@layer utilities {
+  .bg-grid {
+    background-image: linear-gradient(to right, rgba(55, 65, 81, 0.1) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(55, 65, 81, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  .line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .backdrop-blur-sm {
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+
+  .filter-none {
+    filter: none;
+  }
+}
+
+/* Custom styles for animated typing cursor */
+.typing-cursor {
+  display: inline-block;
+  width: 0.1em;
+  height: 1.1em;
+  background-color: currentColor;
+  margin-left: 0.1em;
+  animation: blink 1s infinite;
+  position: relative;
+  top: 0.1em;
+}
+
+/* Make sure these don't conflict with existing CSS */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideDown {
+  from { transform: translateY(0); opacity: 1; }
+  to { transform: translateY(20px); opacity: 0; }
+}
