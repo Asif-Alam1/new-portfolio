@@ -94,7 +94,7 @@ const AboutPage = () => {
         <div className={styles.profile}>
           <div className={styles.imageWrapper}>
             <Image
-              src='/profile-pic.webp'
+              src='/profilepic.jpg'
               alt='Asif Alam'
               width={150}
               height={150}
